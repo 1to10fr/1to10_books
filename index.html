@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free Programming Textbooks: JavaScript and Python for school students</title>
-<meta name="description" content="Two free beginner programming textbooks for school students: JavaScript Foundations and Python Programming. Read online, download the PDF, print for class, and share.">
+<title>Free Programming Textbooks: JavaScript, Python and Luau (Roblox) for school students</title>
+<meta name="description" content="Three free beginner programming textbooks for school students: JavaScript Foundations, Python Programming and Luau Lab for Roblox. Read online, download the PDF, print for class, and share.">
 <meta name="theme-color" content="#f4f5f7">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect x='5' y='6' width='15' height='24' rx='2' fill='%23b4501d' transform='rotate(-8 12 18)'/%3E%3Crect x='16' y='5' width='15' height='24' rx='2' fill='%231e3a5f' transform='rotate(7 24 17)'/%3E%3C/svg%3E">
 
@@ -78,11 +78,17 @@ h1 { margin: 0; font: 700 clamp(2.6rem, 7.2vw, 5.1rem)/.98 var(--display); lette
 @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } }
 
 /* ---------- The two books ---------- */
-.stage { display: grid; grid-template-columns: 1fr 1fr; }
-@media (max-width: 900px) { .stage { grid-template-columns: 1fr; } }
+.stage { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 1100px) { .stage { grid-template-columns: repeat(3, 1fr); } }
 
 .panel { position: relative; overflow: hidden; isolation: isolate; background: var(--bg); color: var(--fg); padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 4.5rem) clamp(3rem, 6vw, 5rem); }
 .panel .inner { width: min(100%, 31rem); margin-inline: auto; }
+@media (min-width: 1100px) {
+  .panel { padding-inline: clamp(1.5rem, 2.6vw, 3rem); }
+  .panel h2 { font-size: clamp(1.55rem, 2.05vw, 2.1rem); }
+  dl.facts div { grid-template-columns: 5.2rem 1fr; gap: .75rem; }
+  .panel p { font-size: 1.04rem; }
+}
 
 .panel.js {
   --bg: #f2e2c8; --fg: #2a1810; --muted: #62493a; --line: rgba(42, 24, 16, .22);
@@ -92,12 +98,18 @@ h1 { margin: 0; font: 700 clamp(2.6rem, 7.2vw, 5.1rem)/.98 var(--display); lette
   --bg: #0b1726; --fg: #f1efe8; --muted: #b0bdd0; --line: rgba(255, 255, 255, .17);
   --btn-bg: #dcb86f; --btn-fg: #0b1726; --focus: #f3d596;
 }
+.panel.lu {
+  --bg: #17102b; --fg: #f3e8ff; --muted: #bfb0de; --line: rgba(255, 255, 255, .17);
+  --btn-bg: #8b3ee6; --btn-fg: #ffffff; --focus: #dcc8fc;
+}
 .panel :focus-visible { outline-color: var(--focus); }
 
 /* decoration borrowed from each cover */
 .panel.js::before { content: ""; position: absolute; z-index: -1; top: -15rem; right: -11rem; width: 36rem; height: 36rem; border-radius: 50%; border: 2px solid rgba(180, 80, 29, .26); }
 .panel.js::after  { content: ""; position: absolute; z-index: -1; bottom: -10rem; left: -8rem; width: 24rem; height: 24rem; border-radius: 50%; background: rgba(180, 80, 29, .11); }
 .panel.py::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(60% 42% at 50% 20%, rgba(220, 184, 111, .17), transparent 70%); }
+.panel.lu::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(60% 42% at 50% 20%, rgba(139, 62, 230, .30), transparent 70%); }
+.panel.lu::after  { content: ""; position: absolute; z-index: -1; top: -13rem; right: -11rem; width: 30rem; height: 30rem; border-radius: 50%; border: 2px solid rgba(139, 62, 230, .38); }
 .panel.py::after  { content: ""; position: absolute; z-index: -1; left: 0; right: 0; bottom: 0; height: 38%; background: linear-gradient(to top, rgba(0, 0, 0, .35), transparent); }
 
 /* the covers, standing like books */
@@ -109,7 +121,7 @@ h1 { margin: 0; font: 700 clamp(2.6rem, 7.2vw, 5.1rem)/.98 var(--display); lette
   transition: transform .6s cubic-bezier(.2, .7, .2, 1);
   box-shadow: 0 34px 38px -20px rgba(0, 0, 0, .5), 0 14px 18px -10px rgba(0, 0, 0, .32), 0 0 0 1px rgba(0, 0, 0, .06);
 }
-.panel.py .bk { box-shadow: 0 34px 44px -18px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .09), 0 0 60px -10px rgba(220, 184, 111, .18); }
+.panel.py .bk, .panel.lu .bk { box-shadow: 0 34px 44px -18px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .09), 0 0 60px -10px rgba(220, 184, 111, .18); }
 .bk img { border-radius: inherit; width: 100%; }
 .bk::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   background: linear-gradient(90deg, rgba(0, 0, 0, .32) 0, rgba(255, 255, 255, .16) 1.4%, rgba(0, 0, 0, .12) 3%, rgba(0, 0, 0, 0) 9%, rgba(0, 0, 0, 0) 93%, rgba(0, 0, 0, .1) 100%); }
@@ -117,7 +129,7 @@ h1 { margin: 0; font: 700 clamp(2.6rem, 7.2vw, 5.1rem)/.98 var(--display); lette
 @media (prefers-reduced-motion: reduce) { .bk, .panel:hover .bk, .panel:focus-within .bk { transform: none; transition: none; } }
 
 h2 { margin: 0 0 .9rem; font: 700 clamp(1.85rem, 3.3vw, 2.4rem)/1.08 var(--display); letter-spacing: -.02em; }
-.panel.py h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.005em; }
+.panel.py h2, .panel.lu h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.005em; }
 .panel p { margin: 0 0 1.6rem; font-size: 1.1rem; line-height: 1.6; }
 
 dl.facts { margin: 0 0 2rem; padding: 0; border-top: 1px solid var(--line); }
@@ -183,12 +195,31 @@ footer a { text-underline-offset: 3px; }
 <main id="top">
   <div class="wrap">
     <section class="intro">
-      <h1>Learn to code with two free textbooks</h1>
+      <h1>Learn to code with three free textbooks</h1>
       <p>Written for school students and self-learners with no experience. Read them on any screen, print them for class, and share them with anyone.</p>
     </section>
   </div>
 
   <section class="stage" id="books" aria-label="The books">
+
+    <article class="panel py">
+      <div class="inner">
+        <div class="cover"><div class="bk"><img src="images/cover-python.webp" width="900" height="1273" alt="Cover of Python Programming, a beginner textbook for school students"></div></div>
+        <h2>Python Programming</h2>
+        <p>A beginner's path from your first print statement to a working quiz game, with mixed quizzes after every chapter and a common-mistakes box in each one.</p>
+        <dl class="facts">
+          <div><dt>Pages</dt><dd>285</dd></div>
+          <div><dt>Chapters</dt><dd>12 chapters</dd></div>
+          <div><dt>Questions</dt><dd>180 mixed-quiz questions, plus an answer key</dd></div>
+          <div><dt>Projects</dt><dd>4 mini-projects and a final quiz game</dd></div>
+          <div><dt>Runs in</dt><dd>IDLE or any Python 3.10+ editor</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="btn get" href="books/Python_Programming_v1.0.pdf" download>Download PDF <span>1.2 MB</span></a>
+          <a class="read" href="books/Python_Programming_v1.0.pdf" target="_blank" rel="noopener">Read in your browser</a>
+        </div>
+      </div>
+    </article>
 
     <article class="panel js">
       <div class="inner">
@@ -209,21 +240,21 @@ footer a { text-underline-offset: 3px; }
       </div>
     </article>
 
-    <article class="panel py">
+    <article class="panel lu">
       <div class="inner">
-        <div class="cover"><div class="bk"><img src="images/cover-python.webp" width="900" height="1273" alt="Cover of Python Programming, a beginner textbook for school students"></div></div>
-        <h2>Python Programming</h2>
-        <p>A beginner's path from your first print statement to a working quiz game, with mixed quizzes after every chapter and a common-mistakes box in each one.</p>
+        <div class="cover"><div class="bk"><img src="images/cover-luau.webp" width="900" height="1273" alt="Cover of Luau Lab, learn Roblox coding from zero to your first game"></div></div>
+        <h2>Luau Lab</h2>
+        <p>Learn Luau, the language behind Roblox games, from your first print to an obby with checkpoints, coins, and saved progress. Every script is real Roblox Studio code.</p>
         <dl class="facts">
-          <div><dt>Pages</dt><dd>285</dd></div>
-          <div><dt>Chapters</dt><dd>12 chapters</dd></div>
-          <div><dt>Questions</dt><dd>180 mixed-quiz questions, plus an answer key</dd></div>
-          <div><dt>Projects</dt><dd>4 mini-projects and a final quiz game</dd></div>
-          <div><dt>Runs in</dt><dd>IDLE or any Python 3.10+ editor</dd></div>
+          <div><dt>Pages</dt><dd>280</dd></div>
+          <div><dt>Chapters</dt><dd>12 chapters, 50 lessons</dd></div>
+          <div><dt>Questions</dt><dd>500, plus 60 challenges, all with explained answers</dd></div>
+          <div><dt>Projects</dt><dd>4 mini-projects and a final obby game</dd></div>
+          <div><dt>Runs in</dt><dd>Roblox Studio (free)</dd></div>
         </dl>
         <div class="actions">
-          <a class="btn get" href="books/Python_Programming_v1.0.pdf" download>Download PDF <span>1.2 MB</span></a>
-          <a class="read" href="books/Python_Programming_v1.0.pdf" target="_blank" rel="noopener">Read in your browser</a>
+          <a class="btn get" href="books/Luau_Lab_v1.0.pdf" download>Download PDF <span>1.4 MB</span></a>
+          <a class="read" href="books/Luau_Lab_v1.0.pdf" target="_blank" rel="noopener">Read in your browser</a>
         </div>
       </div>
     </article>
